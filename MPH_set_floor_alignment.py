@@ -28,9 +28,6 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
 
         obj = bpy.data.objects[obj_name]
 
-        print("Current Object: ", obj.name)
-        print("Update Object: ", update_obj.name)
-
         # if the alignment is set to none, just keep position and update enum select. No use running all this code for no reason
         if alignment != 'NONE':
 
@@ -87,8 +84,6 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
             obj.lock_location[0] = False # unlock x movement
             obj.lock_location[1] = False # unlock y movement
 
-        print("Update Obj Alignment: ", update_obj.head_properties.floor_alignment)
-        print("Set Alignment: ", alignment)
         if update_obj.head_properties.floor_alignment != alignment:
             bpy.context.view_layer.objects.active = update_obj
             update_obj.head_properties.floor_alignment = alignment
