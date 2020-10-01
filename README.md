@@ -8,7 +8,7 @@
 2. If you've added a player head, and it immediately turns invisible, don't worry. They are invisible until you assign a skin to them.
 
 # Documentation
-This documentation will cover the basic function of each tool. A step by step guide on how to use the addon will be coming soon to this repository's wiki. Internal functions and custom properties may be covered at some point, but my priority at the moment is making sure that people can use the addon.
+This documentation will cover the basic function of each tool. A step by step guide on how to use the addon is located in this repository's wiki. Internal functions and custom properties may be covered at some point, but my priority at the moment is making sure that people can use the addon.
 
 ## Where It Is
 The addon tools are accessible from the right hand menu in the 3D View. Press `N` to toggle the menu. The tab is called `MC Head Tools`.
