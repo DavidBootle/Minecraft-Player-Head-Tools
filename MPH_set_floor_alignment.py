@@ -33,6 +33,11 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
 
         # if the alignment is set to none, just keep position and update enum select. No use running all this code for no reason
         if alignment != 'NONE':
+
+            # lock horizantal movement
+            obj.lock_location[0] = True # locks x movement
+            obj.lock_location[1] = True # locks y movement
+
             # get z position
             head_x = obj.location.x
             head_y = obj.location.y
@@ -77,6 +82,10 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
                 obj.location.y = head_block_y + y_offset
             else:
                 return {'CANCELLED'}
+        else:
+            # unlock horizantal movement
+            obj.lock_location[0] = False # unlock x movement
+            obj.lock_location[1] = False # unlock y movement
 
         print("Update Obj Alignment: ", update_obj.head_properties.floor_alignment)
         print("Set Alignment: ", alignment)

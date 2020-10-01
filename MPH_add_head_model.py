@@ -115,10 +115,8 @@ class MPH_OT_add_head_model(bpy.types.Operator):
             outer_skin.data.materials[0] = mat
         else:
             outer_skin.data.materials.append(mat)
-        
-        inner_skin['floor_alignment'] = 'NONE'
-        outer_skin['floor_alignment'] = 'NONE'
-        
+
+        # finish
         self.report({'INFO'}, "Player head created")
 
         MPH_OT_add_head_model.iteration += 1
