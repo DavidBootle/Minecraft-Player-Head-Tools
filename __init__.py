@@ -32,7 +32,7 @@ from . MPH_skin_from_blockdata import MPH_OT_skin_from_blockdata
 from . MPH_skin_from_username import MPH_OT_skin_from_username
 from . MPH_skin_from_file import MPH_OT_skin_from_file
 from . MPH_basic_utils import MPH_OT_delete_faces, MPH_OT_prime_cursor
-from . MPH_rotation import MPH_OT_rotate_0, MPH_OT_rotate_90, MPH_OT_rotate_180, MPH_OT_rotate_270, MPH_OT_rotate_plus_30, MPH_OT_rotate_minus_30, MPH_OT_rotate_plus_45, MPH_OT_rotate_minus_45
+from . MPH_rotation import MPH_OT_adjust_rotation, MPH_OT_rotate_0, MPH_OT_rotate_90, MPH_OT_rotate_180, MPH_OT_rotate_270
 from . MPH_wall_alignment import MPH_OT_set_to_wall, MPH_OT_set_to_floor
 from . MPH_set_floor_alignment import MPH_OT_set_floor_alignment
 from . MPH_panel_settings import PanelSettings
@@ -49,14 +49,11 @@ classes = (
     MPH_OT_skin_from_file,
     MPH_OT_delete_faces,
     MPH_OT_prime_cursor,
+    MPH_OT_adjust_rotation,
     MPH_OT_rotate_0,
     MPH_OT_rotate_90,
     MPH_OT_rotate_180,
     MPH_OT_rotate_270,
-    MPH_OT_rotate_plus_30,
-    MPH_OT_rotate_plus_45,
-    MPH_OT_rotate_minus_30,
-    MPH_OT_rotate_minus_45,
     MPH_OT_set_to_wall,
     MPH_OT_set_floor_alignment,
     MPH_OT_set_to_floor,
