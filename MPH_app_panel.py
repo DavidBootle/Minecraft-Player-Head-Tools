@@ -45,12 +45,11 @@ class MPH_PT_panel(bpy.types.Panel):
         row.operator('mph.rotate_plus_45', text="45° >>")
 
         col.label(text="Alignment")
-        box = col.box()
-        box_col = box.column(align = True)
-        box_col.label(text = 'Floor Alignment')
-        box_col.prop(context.scene.mc_player_heads, 'floor_alignment', expand=True)
-        if not self.headIsSelected(context):
-            box_col.enabled = False
+        if self.headIsSelected(context):
+            box = col.box()
+            box_col = box.column(align = True)
+            box_col.label(text = 'Floor Alignment')
+            box_col.prop(context.active_object.head_properties, 'floor_alignment', expand=True)
         row = col.row(align=True)
         row.operator('mph.set_to_wall', text="Set to Wall")
         row.operator('mph.set_to_floor', text="Set to Floor")
