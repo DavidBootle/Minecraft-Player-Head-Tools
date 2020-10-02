@@ -77,6 +77,8 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
                 y_offset = 0.5
                 obj.location.x = head_block_x + x_offset
                 obj.location.y = head_block_y + y_offset
+            elif alignment == 'OTHER':
+                pass
             else:
                 return {'CANCELLED'}
         else:

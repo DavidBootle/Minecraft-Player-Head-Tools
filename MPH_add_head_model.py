@@ -115,6 +115,10 @@ class MPH_OT_add_head_model(bpy.types.Operator):
             outer_skin.data.materials[0] = mat
         else:
             outer_skin.data.materials.append(mat)
+        
+        # set head rotation
+        inner_skin.head_properties.cardinal_rotation = 'EAST'
+        outer_skin.head_properties.cardinal_rotation = 'EAST'
 
         # finish
         self.report({'INFO'}, "Player head created")

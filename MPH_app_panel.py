@@ -34,11 +34,11 @@ class MPH_PT_panel(bpy.types.Panel):
 
         if self.headIsSelected(context):
             col.label(text="Set Rotation")
-            row = col.row(align=True)
-            row.operator('mph.rotate_0', text="0°")
-            row.operator('mph.rotate_90', text="90°")
-            row.operator('mph.rotate_180', text="180°")
-            row.operator('mph.rotate_270', text="270°")
+            
+
+            col.label(text="Cardinal Rotation")
+            grid = col.grid_flow(row_major=True, columns=3, even_columns=True, even_rows=True, align=True)
+            grid.prop(context.active_object.head_properties, 'cardinal_rotation', expand=True)
             
             col.label(text="Adjust Rotation")
             row = col.row(align=True)
