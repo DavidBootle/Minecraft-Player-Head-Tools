@@ -22,7 +22,7 @@ class ObjectProperties(bpy.types.PropertyGroup):
             name = 'Floor Alignment',
             description = 'Where the block is aligned relative to the floor',
             default = 'NONE',
-            update = MPH_OT_set_floor_alignment.execute
+            update = MPH_OT_set_floor_alignment.run_update
         )
 
         cls.cardinal_rotation = bpy.props.EnumProperty(
@@ -38,7 +38,7 @@ class ObjectProperties(bpy.types.PropertyGroup):
             name = 'Cardinal Rotation',
             description = 'The rotation of the block towards a certain cardinal direction',
             default = 'EAST',
-            update = MPH_OT_set_cardinal_rotation.execute
+            update = MPH_OT_set_cardinal_rotation.run_update
         )
 
     @classmethod

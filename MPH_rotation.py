@@ -138,3 +138,7 @@ class MPH_OT_set_cardinal_rotation(bpy.types.Operator):
         else:
             bpy.context.view_layer.objects.active = update_obj
         return {'FINISHED'}
+    
+    def run_update(self, context):
+        # this way, the function called (this one) returns none
+        bpy.ops.mph.set_cardinal_rotation()

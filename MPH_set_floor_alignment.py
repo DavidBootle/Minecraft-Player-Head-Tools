@@ -6,8 +6,6 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
     bl_label = 'Set Floor Alignment'
     bl_options = {'REGISTER', 'UNDO'}
 
-    return_none: bpy.props.BoolProperty( default = False )
-
     @classmethod
     def poll(cls, context):
         if not context.active_object:
@@ -107,3 +105,7 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
             bpy.context.view_layer.objects.active = update_obj
         
         return {'FINISHED'}
+    
+    def run_update(self, context):
+        # this way, the function called (this one) returns None
+        bpy.ops.mph.set_floor_alignment()
