@@ -34,7 +34,6 @@ class MPH_PT_panel(bpy.types.Panel):
 
         if self.headIsSelected(context):
             col.label(text="Set Rotation")
-            
 
             col.label(text="Cardinal Rotation")
             grid = col.grid_flow(row_major=True, columns=3, even_columns=True, even_rows=True, align=True)
@@ -60,3 +59,6 @@ class MPH_PT_panel(bpy.types.Panel):
             row = col.row(align=True)
             row.operator('mph.set_to_wall', text="Set to Wall")
             row.operator('mph.set_to_floor', text="Set to Floor")
+
+            col.label(text="Options")
+            col.prop(context.scene.mph_panel_settings, 'rotate_to_match_floor_alignment', text="Rotate to Match Floor Alignment")

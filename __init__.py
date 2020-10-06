@@ -62,11 +62,11 @@ classes = (
 def register():
     for class_obj in classes:
         bpy.utils.register_class(class_obj)
-    bpy.types.Scene.mc_player_heads = bpy.props.PointerProperty(type=PanelSettings)
+    bpy.types.Scene.mph_panel_settings = bpy.props.PointerProperty(type=PanelSettings)
     ObjectProperties.register()
 
 def unregister():
     for class_obj in classes:
         bpy.utils.unregister_class(class_obj)
-    del bpy.types.Scene.mc_player_heads
+    del bpy.types.Scene.mph_panel_settings
     ObjectProperties.unregister()

@@ -6,6 +6,8 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
     bl_label = 'Set Floor Alignment'
     bl_options = {'REGISTER', 'UNDO'}
 
+    return_none: bpy.props.BoolProperty( default = False )
+
     @classmethod
     def poll(cls, context):
         if not context.active_object:
@@ -47,6 +49,10 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
             head_block_x = head_x - head_offset_x
             head_block_y = head_y - head_offset_y
 
+            # check if rotate to match floor alignment is enabled
+            fix_rot = context.scene.mph_panel_settings.rotate_to_match_floor_alignment
+
+
             if alignment == 'CENTER':
                 # set x and y to center of the block (0.5)
                 x_offset = 0.5
@@ -59,24 +65,32 @@ class MPH_OT_set_floor_alignment(bpy.types.Operator):
                 y_offset = 0.25
                 obj.location.x = head_block_x + x_offset
                 obj.location.y = head_block_y + y_offset
+                if fix_rot:
+                    obj.head_properties.cardinal_rotation = 'SOUTH'
             elif alignment == 'EAST':
                 # set y to 0.5 and x to 0.75
                 x_offset = 0.75
                 y_offset = 0.5
                 obj.location.x = head_block_x + x_offset
                 obj.location.y = head_block_y + y_offset
+                if fix_rot:
+                    obj.head_properties.cardinal_rotation = 'WEST'
             elif alignment == 'SOUTH':
                 # set y to 0.75 and x to 0.5
                 x_offset = 0.5
                 y_offset = 0.75
                 obj.location.x = head_block_x + x_offset
                 obj.location.y = head_block_y + y_offset
+                if fix_rot:
+                    obj.head_properties.cardinal_rotation = 'NORTH'
             elif alignment == 'WEST':
                 # set y to 0.5 and x to 0.25
                 x_offset = 0.25
                 y_offset = 0.5
                 obj.location.x = head_block_x + x_offset
                 obj.location.y = head_block_y + y_offset
+                if fix_rot:
+                    obj.head_properties.cardinal_rotation = 'EAST'
             elif alignment == 'OTHER':
                 pass
             else:
