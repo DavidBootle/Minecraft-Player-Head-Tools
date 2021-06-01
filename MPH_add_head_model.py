@@ -102,9 +102,14 @@ class MPH_OT_add_head_model(bpy.types.Operator):
         node_principled = nodes.get('Principled BSDF')
         node_principled.inputs[7].default_value = 1.0 # set roughness to 1
 
+
         links = mat.node_tree.links
         links.new(node_image.outputs[0], node_principled.inputs[0]) # link image color output to color input
-        links.new(node_image.outputs[1], node_principled.inputs[19]) # link image alpha to alpha
+        # Version compatibility link image to alpha
+        if bpy.app.version > (2, 90, 0):
+            links.new(node_image.outputs[1], node_principled.inputs[19])
+        else:
+            links.new(node_image.outputs[1], node_principled.inputs[18])
 
         if inner_skin.data.materials:
             inner_skin.data.materials[0] = mat
