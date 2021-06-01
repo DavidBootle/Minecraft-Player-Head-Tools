@@ -104,7 +104,7 @@ class MPH_OT_add_head_model(bpy.types.Operator):
 
         links = mat.node_tree.links
         links.new(node_image.outputs[0], node_principled.inputs[0]) # link image color output to color input
-        links.new(node_image.outputs[1], node_principled.inputs[18]) # link image alpha to alpha
+        links.new(node_image.outputs[1], node_principled.inputs[19]) # link image alpha to alpha
 
         if inner_skin.data.materials:
             inner_skin.data.materials[0] = mat
