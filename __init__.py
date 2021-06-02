@@ -16,7 +16,7 @@ bl_info = {
     "author" : "David Bootle",
     "description" : "An addon meant to work with Mineways and MCPrep that adds tools for creating and managing custom player heads in blender",
     "blender" : (2, 80, 0),
-    "version" : (1,1,0),
+    "version" : (1,0,2),
     "location" : "VIEW_3D",
     "warning" : "",
     "category" : "Generic",
