@@ -100,11 +100,11 @@ class MPH_OT_add_head_model(bpy.types.Operator):
         node_image.name = 'Minecraft Skin'
 
         node_principled = nodes.get('Principled BSDF')
-        node_principled.inputs[7].default_value = 1.0 # set roughness to 1
+        node_principled.inputs["Roughness"].default_value = 1.0 # set roughness to 1
 
         links = mat.node_tree.links
-        links.new(node_image.outputs[0], node_principled.inputs[0]) # link image color output to color input
-        links.new(node_image.outputs[1], node_principled.inputs[19]) # link image alpha to alpha
+        links.new(node_image.outputs["Color"], node_principled.inputs["Base Color"]) # link image color output to color input
+        links.new(node_image.outputs["Alpha"], node_principled.inputs["Alpha"]) # link image alpha to alpha
 
         if inner_skin.data.materials:
             inner_skin.data.materials[0] = mat
